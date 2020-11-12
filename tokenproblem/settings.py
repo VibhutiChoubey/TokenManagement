@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*s^9r!=dl*oxx*f$-b0ysvd2e#4y9*&@#)17sk*w6zeykd!=1$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['token-management-vc.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['token-management-vc.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'rest_framework',
-    # 'apis',
-    'apis.apps.ApisConfig'
+    'apis',
+    # 'apis.apps.ApisConfig'
 ]
 
 MIDDLEWARE = [
