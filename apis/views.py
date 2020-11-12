@@ -10,7 +10,6 @@ import uuid, random
 def generate_token(request):
     key = uuid.uuid4()
     token = Token.objects.create(key=key)
-    print(token.__dict__)
     return JsonResponse({'message': 'Generated successfully!'})
 
 
@@ -50,8 +49,7 @@ def unblock_token(request, token):
         token.save()
         return JsonResponse({'message': 'Unblocked'}, status=200)
     except Exception as e:
-        print(e)
-        return JsonResponse({'message': 'There was some error'}, status=500)
+        return JsonResponse({'message': f'There was some error - {e}'}, status=500)
 
 
 @require_http_methods(["DELETE"])
@@ -65,8 +63,8 @@ def delete_token(request, token):
     try:
         token.delete()
         return JsonResponse({'message': 'Deleted'})
-    except Exception:
-        return JsonResponse({'message': 'There was some error'}, status=500)
+    except Exception as e:
+        return JsonResponse({'message': f'There was some error - {e}'}, status=500)
 
 
 @require_http_methods(["PUT"])
@@ -80,5 +78,5 @@ def keep_alive_token(request, token):
     try:
         token.save()
         return JsonResponse({'message': 'Updated'})
-    except Exception:
-        return JsonResponse({'message': 'There was some error'}, status=500)
+    except Exception as e:
+        return JsonResponse({'message': f'There was some error - {e}'}, status=500)

@@ -18,26 +18,3 @@ class Token(models.Model):
 
     def __str__(self):
         return self.key
-
-    # @property
-    # def delete_unallocated_tokens_after_five_minutes(self):
-    #     print('here')
-    #     # Token.objects.filter(
-    #     #     updated_at__lt=timezone.now()-timezone.timedelta(minutes=5)
-    #     # ).delete()
-    #     if self.user:
-    #         time = self.updated_at + datetime.timedelta(minutes=1)
-    #         if time < datetime.datetime.now():
-    #             token = Token.objects.get(pk=self.pk)
-    #             token.delete()
-    #             return True
-    #         else:
-    #             return False
-    #     else:
-    #         time = self.updated_at + datetime.timedelta(minutes=5)
-    #         if time < datetime.datetime.now():
-    #             token = Token.objects.get(pk=self.pk)
-    #             token.delete()
-    #             return True
-    #         else:
-    #             return False
